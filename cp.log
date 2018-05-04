@@ -1,0 +1,18 @@
+INFO: Platform: win32
+INFO: Version Info: v0.2.0
+DEBUG: Log Path: cp.log
+DEBUG: _ast: "['--pause', 'python', 'E:\\тс\\web_design_homework\\ball.js']"
+DEBUG: Index: "0" Token: "--pause"
+DEBUG: Index: "1" Token: "python"
+DEBUG: Index: "2" Token: "E:\тс\web_design_homework\ball.js"
+DEBUG: namespace: [key] "name" [value] "C:\Users\w1014\.atom\packages\atom-python-run-0.9.3\lib\..\cp\main.py"
+DEBUG: namespace: [key] "pause" [value] "True"
+DEBUG: namespace: [key] "file" [value] "False"
+DEBUG: namespace: [key] "path" [value] ""
+DEBUG: namespace: [key] "repl" [value] "python"
+DEBUG: namespace: [key] "options" [value] "[]"
+DEBUG: namespace: [key] "script" [value] "E:\тс\web_design_homework\ball.js"
+DEBUG: namespace: [key] "last" [value] "E:\тс\web_design_homework\ball.js"
+DEBUG: command: ['python', 'E:\\тс\\web_design_homework\\ball.js']
+INFO: return code: 1 (0x1)
+INFO: elapsed time: 0.073682
