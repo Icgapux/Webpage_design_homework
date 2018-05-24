@@ -14,9 +14,9 @@ class Ball {
         this.image.y = 10
         this.alive = true
         this.speed = Math.sqrt(2) * 8
-        // this.speedX = 5
-        // this.speedY = 5
         this.angle = angle || Math.PI * 1.5
+        this.speedX = this.speed * Math.cos(this.angle)
+        this.speedY = -this.speed * Math.sin(this.angle)
     }
 
     kill() {
@@ -55,7 +55,7 @@ class Ball {
                     if (!this.inBlock) {
                         let x = line.p1.x - line.p2.x
                         let y = line.p1.y - line.p2.y
-                        let angleOfLine = Math.atan2(x, y)
+                        let angleOfLine = Math.atan2(y, x)
                         this.respond(angleOfLine)
                         block.kill()
                         this.inBlock = true
@@ -78,13 +78,13 @@ class Ball {
                 if (!this.inBlock) {
                     let x = x1 - x2
                     let y = y1 - y2
-                    let angleOfConnection = Math.atan2(x, y)
+                    let angleOfConnection = Math.atan2(y, x)
                     let angleOfLine = angleOfConnection - Math.PI / 2
                     this.respond(angleOfLine)
                     block.kill()
                     this.inBlock = true
                     this.lastBlock = block
-                }                
+                }
             } else {
                 if (this.lastBlock == block) {
                     this.inBlock = false
@@ -114,12 +114,17 @@ class Ball {
             this.kill()
         }
 
-        // gravity 
-        let speedX = this.speed * Math.cos(this.angle)
-        let speedY = -this.speed * Math.sin(this.angle)
-        speedY += this.gravity
+        // gravity
+        // let speedX = this.speed * Math.cos(this.angle)
+        // let speedY = -this.speed * Math.sin(this.angle)
+        // this.speedX = speedX
+        // this.speedY = speedY
+        log('speedX, speedY', this.speedX, this.speedY)
+        this.speedY += this.gravity
+        this.speed = Math.sqrt(this.speedX * this.speedX + this.speedY * this.speedY)
+        // this.speedY += this.gravity
         // log('speedx speedy', -speedY, speedX)
-        this.angle = Math.atan2(-speedY, speedX)
+        this.angle = Math.atan2(-this.speedY, this.speedX)
         log(this.angle)
 
         // log(this.lastBlock)

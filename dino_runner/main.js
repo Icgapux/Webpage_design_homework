@@ -1,7 +1,6 @@
 var __main = function() {
     var images = {
-        ball: 'img/ball.png',
-        background: 'img/background.png',
+        sprite : 'img/sprite.png'
     }
     var game = new Game(60, images, function(g){
         // log('callback runs', images)

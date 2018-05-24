@@ -4,7 +4,7 @@ class Block {
         // this.height = 20
         // this.width = 20
         this.size = 60
-        this.speed = this.size * 2
+        this.speed = this.size * 1.8
         this.colors = ['blue', 'red', 'green', 'yellow', 'pink']
         this.color = this.colors[Math.floor(Math.random() * 5)]
         this.init(numberOfBalls)
