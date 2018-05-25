@@ -21,10 +21,6 @@ class Game {
         this.init()
     }
 
-    drawImage(image) {
-        this.context.drawImage(image.image, image.x, image.y)
-    }
-
     update() {
         this.scene.update()
     }
@@ -53,10 +49,10 @@ class Game {
 
         this.draw()
 
-        var self = this
-        setTimeout(function(){
-            self.runloop()
-        }, 1000/self.fps)
+        // var self = this
+        // setTimeout(function(){
+        //     self.runloop()
+        // }, 1000/self.fps)
     }
 
     imageByName(name) {
@@ -72,7 +68,7 @@ class Game {
     runWithScene(scene) {
         var self = this
         this.scene = scene
-        setTimeout(function(){
+        setInterval(function(){
             self.runloop()
         }, 1000/self.fps)
     }

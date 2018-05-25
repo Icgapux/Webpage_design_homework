@@ -11,9 +11,9 @@ class Player {
         this.x = 40
         this.y = 91
 
-        this.gravity = 0.6
+        this.gravity = 0.57
         this.initJumpSpeed = -10
-        this.jumpHeight = 30
+        this.jumpHeight = 40
         this.speed = 0
         this.jumped = false
         this.yOnGround = 91
@@ -30,6 +30,18 @@ class Player {
             this.jumped = true
             this.speed = this.initJumpSpeed
         }
+    }
+
+    collide(obstacle) {
+        let obstacles = obstacle.obstacles
+        for (var i = 0; i < obstacles.length; i++) {
+            let o = obstacles[i]
+            if (!(this.x > o.x + o.width || this.x + this.width < o.x ||
+                  this.y > o.y + o.height || this.y + this.height < o.y)) {
+                return true
+            }
+        }
+        return false
     }
 
     update() {

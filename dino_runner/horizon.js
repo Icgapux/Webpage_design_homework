@@ -9,7 +9,7 @@ class Horizon {
         this.sourceX = 2
         this.sourceY = 54
 
-        this.speed = 5
+        this.speed = this.game.speed
     }
 
     update() {

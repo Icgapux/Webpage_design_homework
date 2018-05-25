@@ -2,7 +2,7 @@ class Obstacle {
     constructor(game) {
         this.game = game
 
-        this.speed = 5
+        this.speed = this.game.speed
         this.minGap = 60
         this.maxGap = 180
         this.gap = getRandomInteger(this.minGap, this.maxGap)
@@ -38,6 +38,12 @@ class Obstacle {
             type :getRandomInteger(0, 1),
         }
         cactus.startIndex = getRandomInteger(0, 6 - cactus.number)
+        let type = this.types[cactus.type]
+        cactus.width = type.width * cactus.number
+        cactus.height = type.height
+        cactus.sourceX = type.sourceX + type.startIndex * cactus.width
+        cactus.sourceY = type.sourceY
+        cactus.y = type.y
         this.obstacles.push(cactus)
     }
 

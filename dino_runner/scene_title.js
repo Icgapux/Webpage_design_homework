@@ -1,7 +1,7 @@
 class SceneTitle {
     constructor(game) {
         this.game = game
-        game.registerAction('space', function(){
+        game.registerAction(' ', function(){
             var s = new Scene(game)
             game.replaceScene(s)
         })
