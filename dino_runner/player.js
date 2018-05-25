@@ -1,20 +1,23 @@
 class Player {
     constructor(game) {
         this.game = game
-        this.gravity = 0.6
-        this.width = 44
-        this.height = 47
-        this.initJumpSpeed = -10
-        this.jumpHeight = 30
-        this.sourceX = 677
-        this.sourceY = 2
-        this.speed = 0
         this.canvas = this.game.canvas
         this.context = this.game.context
-        this.jumped = false
-        this.yOnGround = 91
+
+        this.width = 44
+        this.height = 47
+        this.sourceX = 677
+        this.sourceY = 2
         this.x = 40
         this.y = 91
+
+        this.gravity = 0.6
+        this.initJumpSpeed = -10
+        this.jumpHeight = 30
+        this.speed = 0
+        this.jumped = false
+        this.yOnGround = 91
+
         this.delayCount = 3
         this.delay = 3
         this.numberOfFrames = 4

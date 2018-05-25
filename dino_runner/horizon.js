@@ -1,12 +1,14 @@
 class Horizon {
     constructor(game) {
         this.game = game
+
         this.width = 1200
         this.height = 12
         this.x = 0
         this.y = 127
         this.sourceX = 2
         this.sourceY = 54
+
         this.speed = 5
     }
 
