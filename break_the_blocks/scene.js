@@ -7,6 +7,7 @@ class Scene {
 
         this.paddle = new Paddle(game)
         this.blocks = new Blocks(game, 2)
+        this.ball = new Ball(game, this.paddle)
     }
 
     init() {
@@ -16,15 +17,19 @@ class Scene {
         this.game.registerAction('d', () => {
             this.paddle.move(1)
         })
+        this.game.registerAction('f', () => {
+            this.ball.fire()
+        })
     }
 
     update() {
-
+        this.ball.update()
     }
 
     draw() {
         this.paddle.draw()
         this.blocks.draw()
+        this.ball.draw()
         // draw score
         var context = this.game.context
         context.fillStyle = 'black'

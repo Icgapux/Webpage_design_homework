@@ -5,7 +5,9 @@ class Paddle {
 
         this.x = 150
         this.y = 330
-        this.speed = 5
+        this.width = this.image.width
+        this.height = this.image.height
+        this.speed = 10
     }
 
     move(target) {
