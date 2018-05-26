@@ -6,6 +6,7 @@ class Scene {
         this.init()
 
         this.paddle = new Paddle(game)
+        this.blocks = new Blocks(game, 2)
     }
 
     init() {
@@ -23,6 +24,7 @@ class Scene {
 
     draw() {
         this.paddle.draw()
+        this.blocks.draw()
         // draw score
         var context = this.game.context
         context.fillStyle = 'black'
