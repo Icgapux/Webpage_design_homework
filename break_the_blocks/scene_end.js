@@ -17,7 +17,7 @@ class SceneEnd {
         var context = this.game.context
         context.fillStyle = 'black'
         context.font = '17px consolas'
-        context.fillText('Game over, press key r to restart', 40, 60)
-        context.fillText('Your score:' + this.score, 100, 90)
+        context.fillText('Game over, press key r to restart', 150, 190)
+        context.fillText('Your score:' + this.score, 235, 220)
     }
 }

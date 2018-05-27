@@ -2,11 +2,12 @@ class Scene {
     constructor(game) {
         this.game = game
         this.game.score = 0
+        this.game.level = 0
 
         this.init()
 
         this.paddle = new Paddle(game)
-        this.blocks = new Blocks(game, 2)
+        this.blocks = new Blocks(game, this.game.level)
         this.ball = new Ball(game, this.paddle)
     }
 
@@ -24,6 +25,8 @@ class Scene {
 
     update() {
         this.ball.update()
+        this.ball.collideBlocks(this.blocks)
+        this.blocks.update()
     }
 
     draw() {
@@ -31,9 +34,10 @@ class Scene {
         this.blocks.draw()
         this.ball.draw()
         // draw score
-        var context = this.game.context
+        let context = this.game.context
         context.fillStyle = 'black'
         context.font = '15px consolas'
-        context.fillText('Your score:' + this.game.score, 470, 20)
+        context.fillText('Your score:' + this.game.score, 480, 20)
+        context.fillText('level ' + (this.game.level + 1), 10, 20)
     }
 }
