@@ -38,3 +38,7 @@ var inteceptCircleLineSeg = function(circle, line) {
     }
     return ret.length > 0
 }
+
+const geometricMean = function(a, b) {
+    return Math.sqrt(a * a + b * b)
+}

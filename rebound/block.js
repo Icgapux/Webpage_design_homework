@@ -33,9 +33,11 @@ class Block {
             this.offsetXs = [0, s, s, 0, 0]
             this.offsetYs = [0, 0, s, s, 0]
         } else if (this.type == 1) {
+            // triangle
             this.offsetXs = [s / 2, s, 0, s / 2]
             this.offsetYs = [0, s * Math.sqrt(3) / 2, s * Math.sqrt(3) / 2, 0]
         } else {
+            // circle
             this.offsetXs = [s / 2]
             this.offsetYs = [s / 2]
         }
@@ -106,5 +108,4 @@ class Block {
             context.fillText(this.hp, this.x + this.size / 2 - 5, this.y + this.size / 2 + 5)
         }
     }
-
 }

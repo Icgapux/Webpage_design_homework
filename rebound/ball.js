@@ -5,7 +5,7 @@ class Ball {
         this.alive = false
         this.inBlock = false
         this.lastBlock = null
-        this.gravity = 0.1
+        this.gravity = 0.08
         this.init()
     }
 
@@ -100,6 +100,18 @@ class Ball {
             angleOfLine += Math.PI * 2
         }
         this.angle = Math.PI * 2 - this.angle + angleOfLine * 2
+        this.adjustSpeedByAngle()
+    }
+
+    adjustSpeedByAngle() {
+        this.speed = geometricMean(this.speedX, this.speedY)
+        this.speedX = this.speed * Math.cos(this.angle)
+        this.speedY = -this.speed * Math.sin(this.angle)
+    }
+
+    adjustAngleBySpeed() {
+        this.speed = geometricMean(this.speedX, this.speedY)
+        this.angle = Math.atan2(-this.speedY, this.speedX)
     }
 
     update() {
@@ -113,18 +125,12 @@ class Ball {
         } else if (this.image.y > this.game.canvas.height) {
             this.kill()
         }
+        this.adjustSpeedByAngle()
 
         // gravity
-        // let speedX = this.speed * Math.cos(this.angle)
-        // let speedY = -this.speed * Math.sin(this.angle)
-        // this.speedX = speedX
-        // this.speedY = speedY
         log('speedX, speedY', this.speedX, this.speedY)
         this.speedY += this.gravity
-        this.speed = Math.sqrt(this.speedX * this.speedX + this.speedY * this.speedY)
-        // this.speedY += this.gravity
-        // log('speedx speedy', -speedY, speedX)
-        this.angle = Math.atan2(-this.speedY, this.speedX)
+        this.adjustAngleBySpeed()
         log(this.angle)
 
         // log(this.lastBlock)
