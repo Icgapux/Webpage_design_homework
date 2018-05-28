@@ -3,9 +3,8 @@ class Ball {
         this.game = game
         this.image = game.imageByName('ball')
         this.alive = false
-        this.inBlock = false
-        this.lastBlock = null
-        this.gravity = 0.08
+        this.upGravity = 0.4
+        this.downGravity = 0.08
         this.init()
     }
 
@@ -52,20 +51,11 @@ class Ball {
                 // log('circle', circle)
                 if (inteceptCircleLineSeg(circle, line)) {
                     // log('collide')
-                    if (!this.inBlock) {
-                        let x = line.p1.x - line.p2.x
-                        let y = line.p1.y - line.p2.y
-                        let angleOfLine = Math.atan2(y, x)
-                        this.respond(angleOfLine)
-                        block.kill()
-                        this.inBlock = true
-                        this.lastBlock = block
-                    }
-                    // break
-                } else {
-                    if (this.lastBlock == block) {
-                        this.inBlock = false
-                    }
+                    let x = line.p1.x - line.p2.x
+                    let y = line.p1.y - line.p2.y
+                    let angleOfLine = Math.atan2(-y, x)
+                    this.respond(angleOfLine)
+                    block.kill()
                 }
             }
         } else {
@@ -75,31 +65,39 @@ class Ball {
             let y2 = block.y + block.size / 2
             let d = Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2))
             if (d <= this.image.w / 2 + block.size / 2) {
-                if (!this.inBlock) {
-                    let x = x1 - x2
-                    let y = y1 - y2
-                    let angleOfConnection = Math.atan2(y, x)
-                    let angleOfLine = angleOfConnection - Math.PI / 2
-                    this.respond(angleOfLine)
-                    block.kill()
-                    this.inBlock = true
-                    this.lastBlock = block
-                }
-            } else {
-                if (this.lastBlock == block) {
-                    this.inBlock = false
-                }
+                let x = x1 - x2
+                let y = y1 - y2
+                let angleOfConnection = Math.atan2(-y, x)
+                let angleOfLine = angleOfConnection - Math.PI / 2
+                this.respond(angleOfLine)
+                block.kill()
             }
         }
     }
 
     respond(angleOfLine) {
-        log('angle of ball', this.angle)
         this.game.score++
-        if (angleOfLine < 0) {
-            angleOfLine += Math.PI * 2
+        if (Math.abs(angleOfLine) >= Math.PI / 2) {
+            if (angleOfLine > 0) {
+                angleOfLine -= Math.PI
+            } else {
+                angleOfLine += Math.PI
+            }
         }
+
+        log('angle before', this.angle / Math.PI * 180)
+        log('angle of line', angleOfLine / Math.PI * 180)
         this.angle = Math.PI * 2 - this.angle + angleOfLine * 2
+        if (this.angle > Math.PI * 2) {
+            this.angle -= Math.PI * 2
+        } else if (this.angle < 0) {
+            this.angle += Math.PI * 2
+        }
+
+        if (this.angle < 0) {
+            this.angle += Math.PI * 2
+        }
+        log('angle after', this.angle / Math.PI * 180)
         this.adjustSpeedByAngle()
     }
 
@@ -112,6 +110,9 @@ class Ball {
     adjustAngleBySpeed() {
         this.speed = geometricMean(this.speedX, this.speedY)
         this.angle = Math.atan2(-this.speedY, this.speedX)
+        if (this.angle < 0) {
+            this.angle += Math.PI * 2
+        }
     }
 
     update() {
@@ -128,16 +129,16 @@ class Ball {
         this.adjustSpeedByAngle()
 
         // gravity
-        log('speedX, speedY', this.speedX, this.speedY)
-        this.speedY += this.gravity
-        this.adjustAngleBySpeed()
-        log(this.angle)
-
-        // log(this.lastBlock)
-        if (this.lastBlock != null && this.lastBlock.hp <= 0) {
-            this.lastBlock = null
-            this.inBlock = false
+        // log('speedX, speedY', this.speedX, this.speedY)
+        if (this.speedY > 0) {
+            this.downGravity = Math.min(1 / this.speedY, this.upGravity)
+            this.downGravity = Math.max(this.downGravity, this.downGravity / 4)
+            this.speedY += this.downGravity
+        } else {
+            this.speedY += this.upGravity
         }
+
+        this.adjustAngleBySpeed()
     }
 
     move() {
