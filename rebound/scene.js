@@ -44,6 +44,7 @@ class Scene {
         }
 
         // TODO: collide testing
+        let addedBall = 0
         for (var j = 0; j < this.blocks.blocks.length; j++) {
             var block = this.blocks.blocks[j]
             if (block.hp <= 0) {
@@ -52,10 +53,11 @@ class Scene {
             for (var i = 0; i < this.balls.numberOfFired; i++) {
                 var ball = this.balls.balls[i]
                 if (ball.alive) {
-                    ball.collide(block)
+                    addedBall += ball.collide(block)
                 }
             }
         }
+        this.balls.nextTurnNumber += addedBall
     }
 
     draw() {
@@ -65,6 +67,8 @@ class Scene {
         }
         this.balls.draw()
         this.blocks.draw()
+        this.game.context.font = '25px consolas'
+        this.game.context.fillStyle = 'black'
         this.game.context.fillText('Your score: ' + this.game.score, 20, 50)
     }
 

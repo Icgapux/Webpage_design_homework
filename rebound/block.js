@@ -15,15 +15,25 @@ class Block {
         var canvas = this.game.canvas
         this.x = Math.random() * 0.9 * canvas.width + 10
         this.y = canvas.height - this.size
-        // this.type = Math.random() * 3
-        log('number of balls', numberOfBalls)
-        this.hp = Math.floor(Math.random() * numberOfBalls * 5 + 3)
-        log('hp', this.hp)
-        this.color = this.colors[Math.floor(Math.random() * 5)]
+
+        if (getRandomInteger(0, 6) == 0) {
+            this.isBallAdder = true
+            this.hp = 1
+        } else {
+            this.isBallAdder = false
+            log('number of balls', numberOfBalls)
+            this.hp = Math.floor(Math.random() * numberOfBalls * 5 + 3)
+            log('hp', this.hp)
+            this.color = this.colors[Math.floor(Math.random() * 5)]
+        }
     }
 
     initShape() {
-        this.type = Math.floor(Math.random() * 3)
+        if (this.isBallAdder) {
+            this.type = 2
+        } else {
+            this.type = Math.floor(Math.random() * 3)
+        }
         // this.offsetX = 0
         // this.offsetY = 0
         // this.edges = []
@@ -102,10 +112,12 @@ class Block {
             context.arc(circleX, circleY, this.size / 2, 0, Math.PI * 2)
             context.fill()
             //
-            context.font = '25px consolas'
-            // log(this.hp)
-            context.fillStyle = 'black'
-            context.fillText(this.hp, this.x + this.size / 2 - 5, this.y + this.size / 2 + 5)
+            if (!this.isBallAdder) {
+                context.font = '25px consolas'
+                // log(this.hp)
+                context.fillStyle = 'black'
+                context.fillText(this.hp, this.x + this.size / 2 - 5, this.y + this.size / 2 + 5)
+            }
         }
     }
 }

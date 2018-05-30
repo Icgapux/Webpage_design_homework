@@ -3,13 +3,22 @@ class Balls {
         this.game = game
         this.balls = []
         this.number = 0
+        this.nextTurnNumber = 0
         this.intervalBetweenBalls = 20
         this.initAngle = angle
         this.addBall()
+        this.nextTurnNumber = this.number
         this.initNotFired()
     }
 
     initNotFired() {
+        while (this.number < this.nextTurnNumber) {
+            // this.number++
+            log('number', this.number)
+            log('next number', this.nextTurnNumber)
+            this.addBall()
+        }
+        // this.number = this.numberOfDied
         this.numberOfFired = 0
         this.numberOfDied = 0
         this.fired = false
@@ -18,6 +27,7 @@ class Balls {
 
     addBall() {
         this.number++
+        // this.nextTurnNumber++
         var ball = new Ball(this.game, this.initAngle)
         this.balls.push(ball)
     }

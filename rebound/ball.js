@@ -56,6 +56,7 @@ class Ball {
                     let angleOfLine = Math.atan2(-y, x)
                     this.respond(angleOfLine)
                     block.kill()
+                    break
                 }
             }
         } else {
@@ -71,8 +72,12 @@ class Ball {
                 let angleOfLine = angleOfConnection - Math.PI / 2
                 this.respond(angleOfLine)
                 block.kill()
+                if (block.isBallAdder) {
+                    return 1
+                }
             }
         }
+        return 0
     }
 
     respond(angleOfLine) {
@@ -131,7 +136,7 @@ class Ball {
         // gravity
         // log('speedX, speedY', this.speedX, this.speedY)
         if (this.speedY > 0) {
-            this.downGravity = Math.min(1 / this.speedY, this.upGravity)
+            this.downGravity = Math.min(1.2 / this.speedY, this.upGravity)
             this.downGravity = Math.max(this.downGravity, this.downGravity / 4)
             this.speedY += this.downGravity
         } else {
