@@ -30,11 +30,14 @@ class Scene {
     }
 
     draw() {
+        let context = this.game.context
+        let img = new Image()
+        img.src = 'img/background.jpg'
+        context.drawImage(img, 0, 0)
         this.paddle.draw()
         this.blocks.draw()
         this.ball.draw()
         // draw score
-        let context = this.game.context
         context.fillStyle = 'black'
         context.font = '15px consolas'
         context.fillText('Your score:' + this.game.score, 480, 20)
