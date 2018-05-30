@@ -1,24 +1,54 @@
 <!DOCTYPE html>
+<!-- TODO: 表格放在游戏的排行榜中 -->
 <html>
     <head>
         <meta charset="utf-8">
-        <title>A simple webpage</title>
+        <title>wjs 的主页</title>
+        <link rel="stylesheet" href="css/index.css">
     </head>
     <body>
-        <div class="header">
-            <div class="left-header">
-                <a href="index.html"><img src="icon.png" alt="index"></a>
-            </div>
-            <div class="right-header">
+        <nav class="heading">
+            <ul class="left-nav">
+                <a href="index.html"> <img src="img/icon.png" alt="Github" id="github-logo"></a>
+                <!-- <li><a href="index.html" class="color-white">Features</a></li>
+                <li><a href="index.html" class="color-white">Business</a></li>
+                <li><a href="index.html" class="color-white">Explore</a></li>
+                <li><a href="index.html" class="color-white">Marketplace</a></li>
+                <li><a href="index.html" class="color-white">Pricing</a></li> -->
+            </ul>
+            <ul class="right-nav">
+                <!-- <li><input type="text" placeholder="Search Github" id="input"></li> -->
+                <li id="nav-words"><a href="index.html" class="words">Comments</a></li>
+                <!-- <li style="color: rgb(139, 139, 139)">or</li>
+                <li><a href="index.html" class="color-white">Sign up</a></li> -->
+            </ul>
+        </nav>
+        <!-- <div class="header">
+        </div> -->
+        <div class="main-content">
+            <br><br>
+            <!-- <div class="left-header">
+                <a href="index.html"><img src="img/icon.png" alt="index"></a>
+            </div> -->
+            <div class="games">
+                <h2>游戏</h2>
                 <ul>
-                    <li><a href="index.html">首页</a></li>
-                    <li><a href="rebound.html">弹一弹</a></li>
+                    <li><a href="game/rebound/game.html">弹一弹</a></li>
+                    <li><a href="game/dino_runner/game.html">dino run</a></li>
+                    <img src="img/break_the_block.png" alt="break the block">
+                    <li><a href="game/break_the_blocks/game.html" id="name">打砖块</a></li>
                 </ul>
             </div>
+            <div class="github">
+                <h2>Github</h2>
+                <a href="https://github.com/Icgapux/Webpage_design_homework">link</a>
+                <p>Lying above is the link of the repo on github.<br>Welcome to make issues or pull request to make it better.</p>
+            </div>
         </div>
-        <div class="main-content">
-
+        <div class="backgrounds">
+            <div class="background_1">
+                <img src="img/head_bg.png">
+            </div>
         </div>
-        
     </body>
 </html>
