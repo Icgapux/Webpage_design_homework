@@ -1,25 +1,11 @@
-<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>test</title>
-    </head>
+<body>
 
-    <body>
-        <canvas id="canvas" width="300" height="300"></canvas>
-        <script>
-        // function draw() {
-            console.log('run');
-            var canvas = document.querySelector('#canvas');
-            console.log(canvas);
-                var ctx = canvas.getContext('2d');
+<form action="welcome.php" method="post">
+Name: <input type="text" name="name"><br>
+E-mail: <input type="text" name="email"><br>
+<input type="submit">
+</form>
 
-                ctx.beginPath();
-                ctx.moveTo(75,50);
-                ctx.lineTo(100,75);
-                ctx.lineTo(100,25);
-                ctx.fill();
-        // }
-        </script>
-    </body>
+</body>
 </html>

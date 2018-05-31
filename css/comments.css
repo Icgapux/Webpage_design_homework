@@ -98,42 +98,22 @@ body {
     height: 800;
 }
 
-.header {
-    background-image: linear-gradient(180deg, rgba(255,255,255,0) 60%, #fff),linear-gradient(70deg, #dbedff 32%, #ebfff0);
-}
-
 .main-content {
-    margin-top: 20px;
-    margin-left: 0px;
-    margin-right: 0px;
+    width: 100%;
     background-image: linear-gradient(180deg, rgba(255,255,255,0) 60%, #fff),linear-gradient(70deg, #dbedff 32%, #ebfff0);
 }
 
-.games {
-    margin-left: 25%;
+.main {
+    width: 1000px;
+    margin: auto;
 }
 
-.games ul li a {
-    text-decoration: none;
-    font-size: 20px;
+#id-form {
+    padding-top: 15px;
+    padding-left: 20px;
 }
 
-.github {
-    margin-left: 25%;
-}
-
-.github a {
-    text-decoration: none;
-}
-
-#rebound-name {
-    padding-left: 270px;
-}
-
-#dino-name {
-    padding-left: 250px;
-}
-
-#block-name {
-    padding-left: 260px;
+#header-text {
+    margin-left: 20px;
+    margin-bottom: 0px;
 }
