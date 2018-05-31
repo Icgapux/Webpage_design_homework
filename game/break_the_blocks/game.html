@@ -4,15 +4,44 @@
         <meta charset="utf-8">
         <title>break the blocks</title>
         <style media="screen">
+            .canvas {
+                display: inline;
+            }
             #canvas {
                 border: 1px solid black;
-                margin-top: 300px;
+                margin-top: 100px;
                 margin-left: 100px;
+                display: inline;
+            }
+            body {
+                margin: 0px;
+            }
+            #main {
+                background-color:black;
+                height: 1000px;
+                width: 100%;
+            }
+            .ranklist {
+                /*margin: 50px;*/
+                position: absolute;
+                left: 800px;
+                top: 300px;
+                margin-left: 50px;
+                color: white;
+                display: inline;
+                margin-top: -200px;
+                border: 1px white solid;
+            }
+            #id-table {
+                /*display: inline;*/
+                /*margin-top: -200px;*/
+                /*border: 1px white solid;*/
             }
         </style>
         <!-- <link rel="stylesheet" href="css/main.css"> -->
         <script src="utils.js"></script>
         <script src="levels.js"></script>
+        <script src="jquery-3.3.1.min.js"></script>
 
         <script src="paddle.js"></script>
         <script src="blocks.js"></script>
@@ -26,7 +55,27 @@
         <script src="game.js"></script>
     </head>
     <body>
-        <canvas id="canvas" width="600" height="400"></canvas>
+        <div id="main">
+            <div class="canvas">
+                <canvas id="canvas" width="600" height="400"></canvas>
+            </div>
+            <div class="ranklist">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Ranklist</td>
+                        </tr>
+                        <tr>
+                            <td>rank</td>
+                            <td>score</td>
+                        </tr>
+                    </thead>
+                    <tbody id="id-table">
+                        <tr class="score"><td>1</td><td>300</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
         <script src="main.js"></script>
     </body>
 </html>

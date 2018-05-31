@@ -50,3 +50,8 @@ const getRandomNumber = (start, end) => {
 const getRandomInteger = (start, end) => {
     return Math.floor(getRandomNumber(start, end) + 0.5)
 }
+
+const addScore = (score) => {
+    log('add score')
+    window.ranks.push(score)
+}

@@ -12,7 +12,7 @@ class SceneTitle {
     }
 
     draw() {
-        this.game.context.fillStyle = 'black'
+        this.game.context.fillStyle = 'white'
         this.game.context.font = '17px consolas'
         this.game.context.fillText('Press space to start', 80, 200)
     }

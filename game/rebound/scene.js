@@ -39,7 +39,8 @@ class Scene {
         }
 
         if (this.blocks.upToTop()) {
-            var end = new SceneEnd(this.game, this.game.score)
+            addScore(this.game.score)
+            let end = new SceneEnd(this.game, this.game.score)
             this.game.replaceScene(end)
         }
 

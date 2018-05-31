@@ -5,9 +5,28 @@
         <title>rebound</title>
         <style media="screen">
             #canvas {
-                border: 1px solid black;
+                border: 1px solid white;
                 margin-top: 0px;
                 margin-left: 500px;
+                display: inline;
+            }
+            body {
+                margin: 0px;
+                background-color: black;
+            }
+            #main {
+                background-color: black;
+                height: 1000px;
+                width: 100%;
+            }
+            .ranklist {
+                position: absolute;
+                left: 1350px;
+                top: 300px;
+                display: inline;
+                margin-top: 200px;
+                border: 1px white solid;
+                color: white;
             }
         </style>
         <!-- <link rel="stylesheet" href="css/resbound.css"> -->
@@ -26,6 +45,24 @@
     </head>
     <body>
         <canvas id="canvas" width="800" height="960"></canvas>
+
+        <div class="ranklist">
+            <table>
+                <thead>
+                    <tr>
+                        <td>Ranklist</td>
+                    </tr>
+                    <tr>
+                        <td>rank</td>
+                        <td>score</td>
+                    </tr>
+                </thead>
+                <tbody id="id-table">
+                    <tr class="score"><td>1</td><td>1000</td></tr>
+                </tbody>
+            </table>
+        </div>
+
         <script src="main.js"></script>
     </body>
 </html>

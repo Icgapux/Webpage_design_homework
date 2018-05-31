@@ -1,3 +1,7 @@
+window.ranks = [
+    300,
+]
+
 var __main = function() {
     var images = {
         ball : 'img/ball.png',

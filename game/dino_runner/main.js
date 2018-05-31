@@ -1,3 +1,7 @@
+window.ranks = [
+    1000,
+]
+
 var __main = function() {
     var images = {
         sprite : 'img/sprite.png'

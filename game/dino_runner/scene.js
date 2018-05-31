@@ -26,6 +26,7 @@ class Scene {
         this.cloud.update()
         this.obstacle.update()
         if (this.player.collide(this.obstacle)) {
+            addScore(this.game.score)
             let s = new SceneEnd(this.game, this.game.score)
             this.game.replaceScene(s)
         }

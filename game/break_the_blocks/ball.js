@@ -66,6 +66,7 @@ class Ball {
             }
             if (this.y >= this.game.canvas.height) {
                 // game over
+                addScore(this.game.score)
                 let s = new SceneEnd(this.game, this.game.score)
                 this.game.replaceScene(s)
             }
