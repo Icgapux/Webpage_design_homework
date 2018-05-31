@@ -4,6 +4,52 @@
         <meta charset="utf-8">
         <title>dino_runner</title>
         <style media="screen">
+            li a {
+                text-decoration: none;
+                list-style-type: none;
+                color: white;
+            }
+            .icon {
+                /*position: absolute;
+                top: 10px;
+                left: 10px;*/
+                z-index: 2;
+                margin: auto;
+                width: 1000px;
+                height: 30px;
+            }
+            .left-nav {
+                float: left;
+                /*left: -50px;*/
+                top: 15px;
+                position: relative;
+                width: auto;
+                z-index: 3;
+            }
+            .right-nav {
+                display: inline;
+                float: right;
+                margin-right: 0;
+                margin-top: 24px;
+                position: relative;
+                top: 0;
+                right: 0;
+                z-index: 3;
+            }
+
+            .right-nav li {
+                display: inline;
+                list-style-type: none;
+                font-size: middle;
+            }
+
+            .right-nav li a {
+                font-weight: 500;
+                display: inline;
+            }
+            #nav-words {
+                margin-top: 10px;
+            }
             #canvas {
                 border: 1px solid black;
                 margin-top: 100px;
@@ -39,14 +85,29 @@
                 text-align: center;
             }
             .ranklist {
-                /*margin: 50px;*/
                 position: absolute;
                 left: 1350px;
-                top: 300px;
+                top: 330px;
                 display: inline;
                 margin-top: 200px;
                 border: 1px black solid;
             }
+            .background_1 {
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 1;
+                z-index: 1;
+                width: 100%;
+                height: auto;
+                min-width: 1025px;
+                overflow: hidden;
+            }
+            .backgrounds {
+                width: auto;
+                height: 800;
+            }
+
         </style>
         <!-- <link rel="stylesheet" href="css/main.css"> -->
         <script src="utils.js"></script>
@@ -63,6 +124,14 @@
         <script src="game.js"></script>
     </head>
     <body>
+        <div class="icon">
+            <div class="left-nav">
+                <a href="../../index.html"><img src="../../img/icon.png" alt="index"></a>
+            </div>
+            <ul class="right-nav">
+                <li id="nav-words"><a href="index.html" class="words">Comments</a></li>
+            </ul>
+        </div>
         <div id="main-content">
 			<h1>T-Rex Chrome Offline Game — Dino Runner</h1>
 			<h2>Google Dinosaur Record</h2>
@@ -86,6 +155,11 @@
                     <tr class="score"><td>1</td><td>1000</td></tr>
                 </tbody>
             </table>
+        </div>
+        <div class="backgrounds">
+            <div class="background_1">
+                <img src="../../img/head_bg.png">
+            </div>
         </div>
 
         <script src="main.js"></script>
