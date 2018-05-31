@@ -62,13 +62,14 @@ class Scene {
 
     draw() {
         // log('angle', this.angle)
+        this.game.context.drawImage(this.game.images['background'], 0, 0)
         if (!this.balls.fired) {
             this.drawTarget()
         }
         this.balls.draw()
         this.blocks.draw()
         this.game.context.font = '25px consolas'
-        this.game.context.fillStyle = 'black'
+        this.game.context.fillStyle = 'white'
         this.game.context.fillText('Your score: ' + this.game.score, 20, 50)
     }
 

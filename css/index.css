@@ -124,6 +124,14 @@ body {
     text-decoration: none;
 }
 
-#name {
+#rebound-name {
+    padding-left: 270px;
+}
+
+#dino-name {
+    padding-left: 250px;
+}
+
+#block-name {
     padding-left: 260px;
 }

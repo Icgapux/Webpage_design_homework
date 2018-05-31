@@ -72,7 +72,8 @@ class Game {
     drawCircle(x, y, r) {
         this.context.beginPath()
         this.context.arc(x + r, y + r, r, 0, 2 * Math.PI)
-        this.context.stroke()
+        this.context.fillStyle = 'white'
+        this.context.fill()
     }
 
     runWithScene(scene) {
